@@ -1,63 +1,726 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bikorwamuhangi Gerald | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official personal portfolio of Bikorwamuhangi Gerald, Science Educator, Student Leader and Technology Enthusiast.">
+    <meta name="author" content="Bikorwamuhangi Gerald">
+
+    <title>Bikorwamuhangi Gerald | Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: #263238;
+            background: #f4f7fb;
+        }
+
+        /* Navigation */
+        header {
+            background: #102a43;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 85vh;
+            background: linear-gradient(120deg, #102a43, #1d4e89);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 10%;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .hero h2 {
+            color: #7dd3fc;
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 28px;
+        }
+
+        .hero-image {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: #dbeafe;
+            border: 7px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #102a43;
+            font-size: 65px;
+            font-weight: bold;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #38bdf8;
+            color: #102a43;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        /* General sections */
+        section {
+            padding: 75px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #102a43;
+            margin-bottom: 35px;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card h3 {
+            color: #1d4e89;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+        /* Skills */
+        .skills {
+            background: white;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            background: #dbeafe;
+            color: #102a43;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* Project */
+        .project {
+            border-left: 5px solid #38bdf8;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 5px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Philosophy */
+        .philosophy {
+            background: #102a43;
+            color: white;
+            text-align: center;
+        }
+
+        .philosophy h2 {
+            color: #7dd3fc;
+            margin-bottom: 15px;
+        }
+
+        .philosophy p {
+            font-size: 25px;
+            font-style: italic;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            background: white;
+        }
+
+        .contact p {
+            margin: 12px 0;
+        }
+
+        .contact a {
+            color: #1d4e89;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #102a43;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            font-size: 14px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 60px 7%;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-image {
+                width: 190px;
+                height: 190px;
+            }
+
+            section {
+                padding: 55px 7%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <h1>Bikorwamuhangi Gerald</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#ventures">BMG Ventures</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero">
-  <img src="profile.jpg" alt="Bikorwamuhangi Gerald" class="profile-pic" />
-    <h2>Aspiring Science Educator, Researcher & Entrepreneur</h2>
-    <p>BSc. Education (Physics & Mathematics) at Mbarara University of Science & Technology.</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </section>
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">GERALD.</div>
 
-  <section id="about" class="container">
-    <h3>About Me</h3>
-    <p>
-      I am a Physics and Mathematics student at MUST with a passion for electronics,space physics, educational leadership,politics,sports and sustainable agribusiness.
-    </p>
-  </section>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <section id="projects" class="container">
-    <h3>Academic & Technical Projects</h3>
-    <div class="grid">
-      <div class="card">
-        <h4>Automated Yaka Meter Warning System</h4>
-        <p>Research and prototype design focused on low-credit alerts for prepaid electricity meters.</p>
-      </div>
-      <div class="card">
-        <h4>Physics & mathematics</h4>
-        <p>experimental analysis in electronics and materials physics.</p>
-      </div>
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <h1>Hello, I'm Gerald.</h1>
+
+            <h2>Science Educator | Student Leader | Innovator</h2>
+
+            <p>
+                I am Bikorwamuhangi Gerald, a passionate Physics and
+                Mathematics student interested in education, electronics,
+                technology, leadership and innovation.
+
+                I believe in using knowledge, creativity and leadership
+                to create meaningful impact in society.
+            </p>
+
+            <a href="#about" class="btn">Explore My Journey</a>
+        </div>
+
+        <div class="hero-image">
+    <img src="PROFILE.JPG"
+     alt="Bikorwamuhangi Gerald"
+     class="profile-photo">
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-content">
+
+            <p>
+                My name is Bikorwamuhangi Gerald, from Uganda.
+                I am a student at Mbarara University of Science and
+                Technology, pursuing a Bachelor of Science with
+                Education, specialising in Physics and Mathematics.
+            </p>
+
+            <br>
+
+            <p>
+                My academic journey has developed my interest in
+                scientific investigation, problem-solving and
+                technology. I enjoy exploring scientific concepts
+                and finding practical ways of applying knowledge
+                to everyday challenges.
+            </p>
+
+            <br>
+
+            <p>
+                Outside the classroom, I actively participate in politics,
+                student leadership, sports, community engagement and
+                organisational activities. I believe that education,
+                discipline and effective leadership can transform lives.
+            </p>
+
+            <br>
+
+            <p>
+                My ambition is to become an impactful science educator
+                and an innovator who contributes to the development
+                of society.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <h2 class="section-title">Education</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Mbarara University of Science and Technology</h3>
+
+                <p>
+                    <strong>Programme:</strong> Bachelor of Science
+                    with Education.
+                </p>
+
+                <p>
+                    <strong>Specialisation:</strong> Physics and Mathematics.
+                </p>
+
+                <p>
+                    <strong>Location:</strong> Mbarara, Uganda.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Academic Interests</h3>
+
+                <p>
+                    Physics Education, Mathematics, Digital Electronics,
+                    Analogue Electronics, Instrumentation, Programming
+                    and Scientific Research.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EXPERIENCE AND LEADERSHIP -->
+    <section id="experience" class="about">
+
+        <h2 class="section-title">Leadership & Experience</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>General Secretary – MUBASA</h3>
+
+                <p>
+                    Mbarara University Banyankore Students' Association.
+                    Involved in coordinating association activities,
+                    preparing meeting records, facilitating communication,
+                    organising events and supporting student engagement.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Youth Leadership</h3>
+
+                <p>
+                    Youth Chairperson at Kamabaare Hiika Mushanga Parish.
+                    Participating in youth mobilisation, community
+                    engagement, teamwork and organising activities.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Electoral Experience</h3>
+
+                <p>
+                    Served as a Presiding Officer during elections,
+                    gaining experience in responsibility, communication,
+                    electoral procedures and decision-making.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Teaching Experience</h3>
+
+                <p>
+                    Teaching experience and teaching practice at
+                    Nyakasura School, Fort Portal. Interested in
+                    learner-centred teaching, lesson planning,
+                    assessment and practical science education.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <h2 class="section-title">My Projects & Innovations</h2>
+
+        <div class="cards">
+
+            <div class="card project">
+
+                <h3>Smart Yaka Low-Credit Detection System</h3>
+
+                <p>
+                    An electronics project designed to detect low-credit
+                    warning signals from prepaid electricity meters.
+
+                    The proposed system uses an LDR sensor, ATmega328P
+                    microcontroller and HC-05 Bluetooth module to detect
+                    warning light patterns and communicate notifications
+                    to a smartphone.
+                </p>
+
+                <span class="status">Under Development</span>
+
+            </div>
+
+<div class="project-card">
+    <div class="project-image">
+        <img src="srms.jpg" alt="Student Records Management System">
     </div>
-  </section>
 
-  <section id="ventures" class="container">
-    <h3>BMG Agribusiness</h3>
-    <p>
-      Founder of BMG Enterprise, specializing in modern pig rearing and commercial livestock supply.
-    </p>
-  </section>
+    <div class="project-content">
+        <h3>Student Records Management System (SRMS)</h3>
 
-  <footer id="contact">
-    <h3>Contact</h3>
-    <p>Email:muhangigerald@gmail.com |Tel +256-762906357| Location: Mbarara, Uganda</p>
-  </footer>
+        <p>
+            A software development project designed to support
+            the management and organization of student records.
+            The project was developed in partnership with
+            Atwine Nobert and Nuwatuhaire Rigan.
+        </p>
+
+        <p><strong>Role:</strong> Co-developer</p>
+
+        <p><strong>Collaborators:</strong>
+            Atwine Nobert and Nuwatuhaire Rigan
+        </p>
+
+        <span class="project-tag">Software Development</span>
+        <span class="project-tag">Teamwork</span>
+        <span class="project-tag">Education Technology</span>
+    </div>
+</div>
+
+            <div class="card project">
+
+                <h3>Competence-Based Physics Teaching</h3>
+
+                <p>
+                    Developing practical teaching resources, experimental
+                    worksheets and learner-centred approaches that
+                    encourage investigation, creativity and scientific
+                    problem-solving.
+                </p>
+
+            </div>
+
+            <div class="card project">
+
+                <h3>Student Leadership & Event Organisation</h3>
+
+                <p>
+                    Participating in student leadership initiatives,
+                    cultural activities, association programmes and
+                    event organisation through university and
+                    community engagement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+
+        <h2 class="section-title">Skills & Competencies</h2>
+
+        <div class="skill-list">
+
+            <span class="skill">Physics</span>
+            <span class="skill">Mathematics</span>
+            <span class="skill">Lesson Planning</span>
+            <span class="skill">Classroom Management</span>
+            <span class="skill">Electronics</span>
+            <span class="skill">Circuit Design</span>
+            <span class="skill">Microcontrollers</span>
+            <span class="skill">LaTeX</span>
+            <span class="skill">Ubuntu</span>
+            <span class="skill">Programming</span>
+            <span class="skill">Public Speaking</span>
+            <span class="skill">Leadership</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Communication</span>
+
+        </div>
+
+    </section>
+
+    <!-- CAREER GOALS -->
+    <section id="goals">
+
+        <h2 class="section-title">My Career Goals</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Educational Impact</h3>
+                <p>
+                    To become a competent science educator who inspires
+                    learners and promotes scientific understanding.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Technological Innovation</h3>
+                <p>
+                    To develop practical technological solutions
+                    to challenges affecting communities.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Leadership & Service</h3>
+                <p>
+                    To use leadership, communication and teamwork
+                    to contribute positively to society.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="about" id="interests">
+
+        <h2 class="section-title">Interests & Activities</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Science & Technology</h3>
+                <p>Scientific exploration, electronics, innovation and programming.</p>
+            </div>
+
+            <div class="card">
+                <h3>Community & Leadership</h3>
+                <p>Student leadership, mentorship, volunteering and community development.</p>
+            </div>
+
+            <div class="card">
+                <h3>Sports & Creativity</h3>
+                <p>Football, music, sports activities and graphic design.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PERSONAL PHILOSOPHY -->
+    <section class="philosophy">
+
+        <h2>My Personal Philosophy</h2>
+
+        <p>"Quiet effort creates loud results."</p>
+
+        <br>
+
+        <p style="font-size:16px;">
+            Success is built through consistency, discipline,
+            determination and continuous learning.
+        </p>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Get In Touch</h2>
+
+        <p>
+            I am always interested in opportunities to learn,
+            collaborate, innovate and make a positive contribution.
+        </p>
+
+        <p>
+            <strong>Name:</strong> Bikorwamuhangi Gerald
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:muhangigerald143@gmail.com">
+                muhangigerald143@gmail.com
+            </a>
+        </p>
+
+        <p>
+            <strong>Location:</strong> Uganda
+        </p>
+
+        <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/" target="_blank">
+                Add your GitHub profile
+            </a>
+        </p>
+
+        <p>
+            <strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/" target="_blank">
+                Add your LinkedIn profile
+            </a>
+        </p>
+
+        <br>
+
+        <a href="mailto:muhangigerald143@gmail.com" class="btn">
+            Contact Me
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            &copy; <span id="year"></span>
+            Bikorwamuhangi Gerald. All Rights Reserved.
+        </p>
+
+        <p>Science | Education | Leadership | Innovation</p>
+
+    </footer>
+
+    <script>
+        // Automatically update copyright year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
 </body>
 </html>
 
